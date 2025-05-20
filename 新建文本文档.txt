@@ -1,0 +1,118 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApplication1
+{
+   
+    public class wendu
+    {
+        public double temp;
+        public void IncreaseTemp(double temp1, double num1)
+        {
+            temp = temp1 + num1;
+            Console.WriteLine("升高前的温度：" + temp1);
+            Console.WriteLine("升高了" + num1 + "度");
+            Console.WriteLine("升高完的温度" + temp);
+        }
+        public void DecreaseTemp(double temp2, double num2)
+        {
+            temp = temp2 - num2;
+            Console.WriteLine("减少前的温度：" + temp2);
+            Console.WriteLine("减少了" + num2 + "度");
+            Console.WriteLine("降温完的温度" + temp);
+        }
+        public void SetTemp(double temp3)
+        {
+            temp = temp3;
+            Console.WriteLine("不变的温度为：" + temp3);
+        }
+    }
+    public class TVRemote
+    {
+        public int Channel = 26;
+        public int volume = 50;
+        public bool isOn;
+
+        public void ChangeChannel(int Channel1)
+        {
+            Console.WriteLine("本来的频道：" + Channel);
+            Console.WriteLine("切换完的频道：" + Channel1);
+        }
+        public void AdjustVolume(int num3)
+        {
+            Console.WriteLine("原本的音量是：" + volume);
+            if (volume == num3)
+            {
+                Console.WriteLine("音量不变");
+            }
+            else if (volume > num3)
+            {
+                int b = volume - num3;
+                Console.WriteLine("减少了" + b + "音量");
+            }
+            else if (volume < num3)
+            {
+                int b = num3 - volume;
+                Console.WriteLine("增加了" + b + "音量");
+            }
+
+
+            Console.WriteLine("变化完的音量：" + num3);
+        }
+        public void PowerSwitch(bool isOn)
+        {
+            Console.WriteLine("开关状态：" + isOn);
+        }
+    }
+    public class shuzu
+    {
+        
+        public void show(int[] a)
+        {
+            for (int i = 0; i < a.Length; i++)
+            {
+                Console.WriteLine("数组元素：" + a[i]);
+            }
+        }
+        public void zuida(int[] a)
+        {
+            int z=a[0];
+            for (int i = 0; i < a.Length; i++)
+            {  
+                if (z <a[i]) {
+                    z = a[i];
+                }
+            }
+            Console.WriteLine("最大值为：" + z);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            wendu w = new wendu();
+            w.IncreaseTemp(30.5, 5);
+            Console.WriteLine("------------");
+            w.DecreaseTemp(30.5, 5);
+            Console.WriteLine("------------");
+            w.SetTemp(30.5);
+
+            Console.WriteLine("------------------------");
+            TVRemote t = new TVRemote();
+            t.ChangeChannel(28);
+            Console.WriteLine("------------");
+            t.AdjustVolume(80);
+            Console.WriteLine("------------");
+            t.PowerSwitch(true);
+            Console.WriteLine("------------------------");
+            int[] a = { 1, 2, 3, 4, 5, 6, 7 };
+            shuzu s = new shuzu();
+            s.show(a);
+            s.zuida(a);
+            Console.ReadLine();
+        }
+    }
+}
